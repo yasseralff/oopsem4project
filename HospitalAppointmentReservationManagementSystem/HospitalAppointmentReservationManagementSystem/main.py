@@ -1,4 +1,3 @@
-import time
 from Hospital import Hospital
 from Doctor import Cardiologist, Pediatrician, Neurologist
 from Patient import Patient
@@ -20,17 +19,12 @@ while a == 1:
 
         #showing hospital details
         if num == 1:
-            print("*** Please Wait ***")
-            time.sleep(1)
             print("___******____")
             obj = Hospital('SDU', 'Kaskelen', '7:00am', '11:00pm')
             obj.display()
-            time.sleep(1)
 
         # Showing doctor that work in hospital
         elif num == 2:
-            print("*** Please Wait ***")
-            time.sleep(1)
             print(" **There are three types of Doctors here**")
             print("1: Cardiologist")
             print("2: Pediatrician")
@@ -39,33 +33,24 @@ while a == 1:
 
             # Showing details of Cardiologist Doctor
             if num_doc == 1:
-                print("*** Please Wait ***")
-                time.sleep(1)
                 print("_*******_")
-                obj = Cardiologist("01", "Dr.Daniyal", "Monday - Friday, 8AM - 5PM")
+                obj = Cardiologist("01", "Dr.Zaki", "Monday - Friday, 8AM - 5PM")
                 obj.display()
                 obj.working()
-                time.sleep(1)
 
             # Showing details of Cardiologist Doctor
             elif num_doc == 2:
-                print("*** Please Wait ***")
-                time.sleep(1)
                 print("_*******_")
-                obj = Pediatrician("02", "Dr.Mubeen", "Tuesday - Sunday, 9AM - 7PM")
+                obj = Pediatrician("02", "Dr.Yasser", "Tuesday - Sunday, 9AM - 7PM")
                 obj.display()
                 obj.working()
-                time.sleep(1)
 
             # Showing details of Cardiologist Doctor
             elif num_doc == 3:
-                print("*** Please Wait ***")
-                time.sleep(1)
                 print("_*******_")
-                obj = Neurologist("03", "Dr.Sufyan", "Friday - Sunday, 6AM - 9PM")
+                obj = Neurologist("03", "Dr.Kahfi", "Friday - Sunday, 6AM - 9PM")
                 obj.display()
                 obj.working()
-                time.sleep(1)
 
         # Showing doctor that available
         elif num == 3:
@@ -189,6 +174,14 @@ while a == 1:
             print("Thanks for visiting.")
             a = 0
         else:
-            print("Invalid Input. Try again")
-    except:
-        print("Invalid Input. Try again")
+            print("Invalid Input. try again")
+    except ValueError:
+            print("Invalid Input. Please enter a number.")
+    except Exception as e:
+        print("An error occurred:", e)
+    finally:
+        # Clear the input buffer
+        try:
+            input("Press Enter to continue...")
+        except:
+            pass  # If user sends EOF (Ctrl+D), just continue without clearing buffer
